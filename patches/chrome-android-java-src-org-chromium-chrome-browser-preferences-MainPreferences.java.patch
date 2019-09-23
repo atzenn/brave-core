@@ -1,0 +1,13 @@
+diff --git a/chrome/android/java/src/org/chromium/chrome/browser/preferences/MainPreferences.java b/chrome/android/java/src/org/chromium/chrome/browser/preferences/MainPreferences.java
+index 56f952c159ffb94c0b51a47d6949e8bc3f99871c..26288be36dd4ecb90672c74ef0498c97ce26bffb 100644
+--- a/chrome/android/java/src/org/chromium/chrome/browser/preferences/MainPreferences.java
++++ b/chrome/android/java/src/org/chromium/chrome/browser/preferences/MainPreferences.java
+@@ -191,7 +191,7 @@ public class MainPreferences extends PreferenceFragmentCompat
+         mSignInPreference = (SignInPreference) mAllPreferences.get(PREF_SIGN_IN);
+     }
+ 
+-    private void setManagedPreferenceDelegateForPreference(String key) {
++    protected void setManagedPreferenceDelegateForPreference(String key) {
+         ChromeBasePreferenceCompat chromeBasePreference =
+                 (ChromeBasePreferenceCompat) mAllPreferences.get(key);
+         chromeBasePreference.setManagedPreferenceDelegate(mManagedPreferenceDelegate);
