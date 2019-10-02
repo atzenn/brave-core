@@ -46,8 +46,12 @@ void BravePrivacyHandler::RegisterMessages() {
 void BravePrivacyHandler::AddLoadTimeData(content::WebUIDataSource* data_source,
                                           Profile* profile) {
 #if !BUILDFLAG(USE_GCM_FROM_PLATFORM)
+  gcm::BraveGCMChannelStatus* gcm_channel_status =
+      gcm::BraveGCMChannelStatusSyncer::GetForProfile(profile);
+
+  DCHECK(gcm_channel_status);
   data_source->AddBoolean("pushMessagingEnabledAtStartup",
-      gcm::BraveGCMChannelStatusSyncer::IsGCMEnabled());
+                          gcm_channel_status->IsGCMEnabled());
 #endif
 }
 
