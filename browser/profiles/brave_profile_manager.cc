@@ -45,7 +45,7 @@
 using content::BrowserThread;
 
 #if !BUILDFLAG(USE_GCM_FROM_PLATFORM)
-#include "brave/components/brave_gcm_driver/brave_gcm_channel_status_syncer.h"
+#include "brave/browser/gcm_driver/brave_gcm_channel_status.h"
 #endif
 
 BraveProfileManager::BraveProfileManager(const base::FilePath& user_data_dir)
@@ -112,7 +112,7 @@ void BraveProfileManager::DoFinalInitForServices(Profile* profile,
   brave_ads::AdsServiceFactory::GetForProfile(profile);
   brave_rewards::RewardsServiceFactory::GetForProfile(profile);
 #if !BUILDFLAG(USE_GCM_FROM_PLATFORM)
-  gcm::BraveGCMChannelStatusSyncer::GetForProfile(profile);
+  gcm::BraveGCMChannelStatus::GetForProfile(profile);
 #endif
   content::URLDataSource::Add(profile,
       std::make_unique<brave_content::BraveSharedResourcesDataSource>());
