@@ -12,12 +12,10 @@ static_library("brave_gcm_driver") {
       "//components/gcm_driver:gcm_buildflags",
       "//components/gcm_driver:gcm_driver",
       "//components/prefs",
+      # For profile.h
+      "//content/public/browser",
       "//net",
       "//services/network/public/mojom",
-      # For profile.h
-      "//components/domain_reliability",
-      "//content/public/browser",
-      "//content/public/common",
     ]
   }
 }

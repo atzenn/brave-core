@@ -162,6 +162,7 @@ source_set("ui") {
     "//brave/components/brave_welcome_ui:generated_resources",
     "//chrome/app:command_ids",
     "//chrome/common",
+    "//components/gcm_driver:gcm_buildflags",
     "//components/prefs",
     "//content/public/browser",
     "//content/public/common",

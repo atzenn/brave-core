@@ -17,6 +17,7 @@ source_set("profiles") {
     "//brave/components/brave_rewards/browser",
     "//brave/content:browser",
     "//chrome/common",
+    "//components/gcm_driver:gcm_buildflags",
     "//components/translate/core/browser",
     "//content/public/common",
     "//ui/base",
