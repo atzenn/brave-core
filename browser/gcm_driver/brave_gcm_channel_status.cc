@@ -6,6 +6,7 @@
 #include "brave/browser/gcm_driver/brave_gcm_channel_status.h"
 
 #include "chrome/browser/profiles/profile.h"
+#include "components/gcm_driver/gcm_channel_status_syncer.h"
 #include "components/prefs/pref_service.h"
 
 namespace gcm {
@@ -27,7 +28,6 @@ BraveGCMChannelStatus* BraveGCMChannelStatus::GetForProfile(
     status = static_cast<BraveGCMChannelStatus*>(
         profile->GetUserData(kBraveGCMStatusKey));
   }
-
   return status;
 }
 

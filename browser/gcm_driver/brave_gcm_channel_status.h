@@ -6,10 +6,7 @@
 #ifndef BRAVE_COMPONENTS_BRAVE_GCM_DRIVER_BRAVE_GCM_CHANNEL_STATUS_SYNCER_H_
 #define BRAVE_COMPONENTS_BRAVE_GCM_DRIVER_BRAVE_GCM_CHANNEL_STATUS_SYNCER_H_
 
-#include <string>
-
 #include "base/supports_user_data.h"
-#include "components/gcm_driver/gcm_channel_status_syncer.h"
 
 class Profile;
 
