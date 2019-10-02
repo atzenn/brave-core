@@ -32,7 +32,6 @@
 #include "chrome/common/pref_names.h"
 #include "chrome/grit/generated_resources.h"
 #include "components/bookmarks/common/bookmark_pref_names.h"
-#include "components/gcm_driver/gcm_buildflags.h"
 #include "components/prefs/pref_service.h"
 #include "components/safe_browsing/common/safe_browsing_prefs.h"
 #include "components/signin/public/base/signin_pref_names.h"
@@ -41,10 +40,6 @@
 #include "content/public/browser/url_data_source.h"
 #include "content/public/common/webrtc_ip_handling_policy.h"
 #include "ui/base/l10n/l10n_util.h"
-
-#if !BUILDFLAG(USE_GCM_FROM_PLATFORM)
-#include "components/gcm_driver/gcm_channel_status_syncer.h"
-#endif
 
 using content::BrowserThread;
 
@@ -87,20 +82,10 @@ void BraveProfileManager::InitTorProfileUserPrefs(Profile* profile) {
 #endif
 }
 
-// static
-void BraveProfileManager::InitGCMPrefs(Profile* profile) {
-#if !BUILDFLAG(USE_GCM_FROM_PLATFORM)
-  PrefService* pref_service = profile->GetPrefs();
-  pref_service->SetBoolean(kGCMChannelStatusAtStartup,
-      pref_service->GetBoolean(gcm::prefs::kGCMChannelStatus));
-#endif
-}
-
 void BraveProfileManager::InitProfileUserPrefs(Profile* profile) {
   if (profile->GetPath() == GetTorProfilePath()) {
     InitTorProfileUserPrefs(profile);
   } else {
-    InitGCMPrefs(profile);
     ProfileManager::InitProfileUserPrefs(profile);
   }
 }
